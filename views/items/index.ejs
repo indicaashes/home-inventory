@@ -2,21 +2,61 @@
 
 <table id="list">
   <thead>
+    <h2>In Home</h2>
+
     <tr>
       <th>Title</th>
-      <th>Release<br>Year</th>
-      <th></th>
+      <th>Location</th>
+      <th>Owned</th>
+      <th>Username<br>Avatar</th>
+      <th>More Details</th>
+      
     </tr>
+    
+    </section>
+    
   </thead>
+  
   <tbody>
-    <% items.forEach(function(m) { %>
+    <% items.forEach(function(i) { %>
       <tr>
-        <td><%= m.title %></td>
-        <td><%= m.releaseYear %></td>
-        <td><a href="/items/<%= m._id %>">DETAILS</a></td>
+        <td><%= i.title %></td>
+        <td><%= i.location %></td>
+        <td><%= i.owned %></td>
+        <td><%= i.userName %><br><%= i.userAvatar %></td>
+        <td><a href="/items/<%= i._id %>"></a>More-Details</td>
       </tr>
       <% }); %>
     </tbody>
   </table>
   
+  <table id="list">
+    <thead>
+      <h2>Desired Items</h2>
+  
+      <tr>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Owned</th>
+        <th>Username<br>Avatar</th>
+        <th>More Details</th>
+        
+      </tr>
+      
+      </section>
+      
+    </thead>
+    
+    <tbody>
+      <% items.forEach(function(i) { %>
+        <tr>
+          <td><%= i.title %></td>
+          <td><%= i.location %></td>
+          <td><%= i.owned %></td>
+          <td><%= i.userName %><br><%= i.userAvatar %></td>
+          <td><a href="/items/<%= i._id %>"></a>More-Details</td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
 <%- include('../partials/footer') %>

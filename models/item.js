@@ -2,6 +2,17 @@ const mongoose = require('mongoose');
 const { stringify } = require('querystring');
 const Schema = mongoose.Schema;
 
+const detailsSchema = new Schema({
+  color: {
+    type: String,
+    },
+  link: {
+    type: String,
+  },
+  keep: { type: Boolean,
+    default: true },
+})
+
 const itemSchema = new Schema({
     title: { type: String, required: true },
     color: {
@@ -24,7 +35,8 @@ const itemSchema = new Schema({
     userName: String,
     userAvatar: String
 }, {  
-    timestamps: true
+    timestamps: true,
+    details: [detailsSchema]
   });
   
   module.exports = mongoose.model('Item', itemSchema);
