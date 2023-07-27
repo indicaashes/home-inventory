@@ -8,7 +8,7 @@ const listSchema = new Schema({
     itemId: [ObjectId],
     title: {
         type: String,
-        enum:  'Own', 'Desire'
+        enum:  'Owned', 'Desire'
     },
 });
 module.exports = mongoose.model('List', listSchema);

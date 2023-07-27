@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/items/new" method="POST">
+<form id="new-form" action="/items" method="POST">
     <label>Title:</label>
     <input type="text" name="title">
     <label>Color:</label>
@@ -14,10 +14,11 @@
         </select>
     <label>Link:</label>
     <input type="text" name="link">
-    <label>Owned:</label>
-    <input type="checkbox" name="owned" checked>
-    <label>Keep:</label>
-    <input type="checkbox" name="owned" checked>
+    <label>Status:</label>
+    <select name="itemStatus" id="itemStatus">
+        <option value="In-Home">In Home</option>
+        <option value="Desired">Desired</option>
+      </select>
     <input type="submit" value="Add Item">
 
 </form>

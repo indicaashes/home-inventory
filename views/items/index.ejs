@@ -1,62 +1,75 @@
 <%- include('../partials/header') %>
-
-<table id="list">
-  <thead>
     <h2>In Home</h2>
+<table id="in-home">
+  <thead>
 
     <tr>
       <th>Title</th>
       <th>Location</th>
       <th>Owned</th>
       <th>Username<br>Avatar</th>
-      <th>More Details</th>
-      
+
     </tr>
-    
-    </section>
-    
   </thead>
-  
-  <tbody>
-    <% items.forEach(function(i) { %>
+<tbody>
+    <% inHomeItems.forEach(function(i) { %>  
       <tr>
-        <td><%= i.title %></td>
-        <td><%= i.location %></td>
-        <td><%= i.owned %></td>
-        <td><%= i.userName %><br><%= i.userAvatar %></td>
-        <td><a href="/items/<%= i._id %>"></a>More-Details</td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  
-  <table id="list">
-    <thead>
-      <h2>Desired Items</h2>
-  
-      <tr>
-        <th>Title</th>
-        <th>Location</th>
-        <th>Owned</th>
-        <th>Username<br>Avatar</th>
-        <th>More Details</th>
-        
-      </tr>
+
+      <td><%= i.title %></td> 
+      <td><%= i.location %></td>
+      <td><%= i.itemStatus %></td>
+      <td><%= i.userName %></td>
+       <td> <%= i.userAvatar %></td>
+       <td><a href="/items/<%= i._id %>">Item Details</a>
+       </td>
+     <td><% i.details.forEach(detail => { %>
+       <%= detail.color %>
+       <%= detail.link %>
+       <%= detail.keep %>
+     <% }) %>
+   </td>         
+  </tr>
+
+    <% }); %>
+</tbody>
+</table>
+      <h2>Desired</h2>
+
+      <table id="desired">
+        <thead>
       
-      </section>
+          <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Owned</th>
+            <th>Username<br>Avatar</th>
       
-    </thead>
-    
-    <tbody>
-      <% items.forEach(function(i) { %>
-        <tr>
-          <td><%= i.title %></td>
-          <td><%= i.location %></td>
-          <td><%= i.owned %></td>
-          <td><%= i.userName %><br><%= i.userAvatar %></td>
-          <td><a href="/items/<%= i._id %>"></a>More-Details</td>
-        </tr>
+          </tr>
+        </thead>
+      <tbody>
+          <% desiredItems.forEach(function(i) { %>  
+            <tr>
+      
+            <td><%= i.title %></td> 
+            <td><%= i.location %></td>
+            <td><%= i.itemStatus %></td>
+            <td><%= i.userName %></td>
+              <td><%= i.userAvatar %></td>
+            <td><a href="/items/<%= i._id %>">Item Details</a>
+              </td>
+            <td><% i.details.forEach(detail => { %>
+              <%= detail.color %>
+              <%= detail.link %>
+              <%= detail.keep %>
+            <% }) %>
+          </td>  
+          <td
+            </tr>          
         <% }); %>
+
       </tbody>
-    </table>
+      </table>
+
+
+
 <%- include('../partials/footer') %>

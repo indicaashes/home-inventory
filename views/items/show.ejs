@@ -1,3 +1,12 @@
 <%- include('../partials/header') %>
-
+<section id="show-page">
+        <div>Title: <%= item.title %></div>
+        <div>Location: <%= item.location %></div>
+        <div>Status: <%= item.itemStatus %></div>
+        <div>Color: <%= item.color %></div>
+        <label>Link:</label>
+        <input type="text" name="link">
+        <input type="submit" value="Update">
+    
+</section>
 <%- include('../partials/footer') %>

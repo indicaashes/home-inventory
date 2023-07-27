@@ -2,7 +2,7 @@ const Item = require('../models/item');
 
 module.exports = {
   index,
-  showItems,
+  show,
   new: newItem,
   create,
   delete: deleteItem,
@@ -11,11 +11,12 @@ module.exports = {
 };
 
   async function index(req, res) {
-    const items = await Item.find({});
-    res.render('items/index', { title: 'Home Inventory', items });
+    const desiredItems = await Item.find({itemStatus: 'Desired'});
+    const inHomeItems = await Item.find({itemStatus: 'In-Home'});
+    res.render('items/index', { title: 'Home Inventory', inHomeItems,desiredItems });
   }
  
-  async function showItems(req, res) {
+  async function show(req, res) {
     const item = await Item.findById(req.params.id);
 
     res.render('items/show', {title: 'Item Details',
@@ -27,6 +28,9 @@ module.exports = {
   }
   async function create(req, res) {
     Item.create(req.body);
+
+    res.redirect('/items');
+
   }
   function deleteItem(req, res) {
     Item.deleteOne(req.params.id);

@@ -26,17 +26,15 @@ const itemSchema = new Schema({
     link: {
       type: String,
     },
-    owned: { 
-      type: Boolean, 
-      default: true },
-    keep: { type: Boolean,
-      default: true },
-
+    itemStatus: { 
+      type: String, 
+      enum: ['In-Home', 'Desired'] },
     userName: String,
-    userAvatar: String
-}, {  
+    userAvatar: String,
+
+    details: [detailsSchema]}, {  
     timestamps: true,
-    details: [detailsSchema]
+   
   });
   
   module.exports = mongoose.model('Item', itemSchema);
