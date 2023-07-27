@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const { stringify } = require('querystring');
 const Schema = mongoose.Schema;
 
-module.exports ={
-    deleteOne
-  };
-
 const detailsSchema = new Schema({
   color: {
     type: String,
@@ -14,7 +10,11 @@ const detailsSchema = new Schema({
     type: String,
   },
   keep: { type: Boolean,
-    default: true },
+    default: true 
+  },
+  moreDetails: {
+    type: String
+  }
 })
 
 const itemSchema = new Schema({
@@ -40,13 +40,7 @@ const itemSchema = new Schema({
     timestamps: true,
    
   })
-  function deleteOne(id) {
-    // All properties attached to req.params are strings!
-    id = parseInt(id);
-    // Find the index based on the id of the todo object
-    const idx = items.findIndex(item => item.id === id);
-    items.splice(idx, 1);
-  };
-  
+
+
   module.exports = mongoose.model('Item', itemSchema);
   
