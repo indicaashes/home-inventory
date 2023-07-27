@@ -25,7 +25,7 @@ const itemSchema = new Schema({
     
     location: {
       type: String,
-      enum: ['Living-Room', 'Kitchen', 'Bedroom', 'Bathroom']
+      enum: ['Living-Room', 'Kitchen', 'Bedroom', 'Bathroom', 'Study', 'Pantry']
     },
     link: {
       type: String,

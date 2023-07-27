@@ -1,6 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+
+#home-nav {
+  color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically center the content */
+  padding: 5px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  box-sizing: border-box;
 }
 
 a {
@@ -18,6 +29,7 @@ a {
   height: 30px;
 }
 
+
 .delete-form {
   display: inline-block;
   margin-right: 10px;
@@ -26,3 +38,21 @@ a {
 .delete-form button {
   color: red;
 }
+
+
+
+.index-table {
+  height: 10vh; 
+  border-style: solid;
+  border-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+
+.index-h2 {
+  text-align: center;
+}
+
+

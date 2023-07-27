@@ -1,4 +1,6 @@
 const Item = require('../models/item');
+const User = require('../models/user');
+
 
 module.exports = {
   index,
