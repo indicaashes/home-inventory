@@ -1,12 +1,16 @@
 <%- include('../partials/header') %>
+
 <section id="show-page">
-        <div>Title: <%= item.title %></div>
-        <div>Location: <%= item.location %></div>
-        <div>Status: <%= item.itemStatus %></div>
-        <div>Color: <%= item.color %></div>
-        <label>Link:</label>
-        <input type="text" name="link">
+    <a href="/items/<%= item.id %>/edit">Edit Item</a><br>
+
+        <div>Title: <%= item.title %></div><br>
+        <div>Location: <%= item.location %></div><br>
+        <div>Status: <%= item.itemStatus %></div><br>
+        <div>Color: <%= item.color %></div><br>
+        <label>Link:</label><br>
+        <input type="text" name="link"><br>
+
         <input type="submit" value="Update">
-    
-</section>
+        </section>
+
 <%- include('../partials/footer') %>

@@ -8,6 +8,7 @@ module.exports = {
   delete: deleteItem,
   edit,
   update
+  
 };
 
   async function index(req, res) {
@@ -32,8 +33,10 @@ module.exports = {
     res.redirect('/items');
 
   }
+
   function deleteItem(req, res) {
-    Item.deleteOne(req.params.id);
+    Item.deleteOne(req.params.id);  
+    res.redirect('/items');
 
   }  
 
@@ -41,7 +44,7 @@ module.exports = {
     const item = Item.getOne(req.params.id);
     res.render('items/edit', {
       title: "Edit Items",
-      item,
+      item
     });
   }
 

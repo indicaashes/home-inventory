@@ -61,9 +61,13 @@
               <%= detail.color %>
               <%= detail.link %>
               <%= detail.keep %>
+              
             <% }) %>
+            <form action="/items/<%= i.id %>?_method=DELETE" 
+              class="delete-form" method="POST">
+            <button type="submit">X</button>
+            </form>
           </td>  
-          <td
             </tr>          
         <% }); %>
 
