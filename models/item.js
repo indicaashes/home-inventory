@@ -1,46 +1,49 @@
 const mongoose = require('mongoose');
-const { stringify } = require('querystring');
 const Schema = mongoose.Schema;
 
 const detailsSchema = new Schema({
   color: {
     type: String,
-    },
+  },
   link: {
     type: String,
   },
-  keep: { type: Boolean,
-    default: true 
+  keep: {
+    type: Boolean,
+    default: true,
   },
   moreDetails: {
-    type: String
-  }
-})
+    type: String,
+  },
+  notes: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'Note',
+  }],
+});
 
 const itemSchema = new Schema({
-    title: { type: String, required: true },
-    color: {
-      type: String,
-      },
-    
-    location: {
-      type: String,
-      enum: ['Living-Room', 'Kitchen', 'Bedroom', 'Bathroom', 'Study', 'Pantry']
-    },
-    link: {
-      type: String,
-    },
-    itemStatus: { 
-      type: String, 
-      enum: ['In-Home', 'Desired'] },
-    userName: String,
-    userAvatar: String,
+  title: { type: String, required: true },
+  color: {
+    type: String,
+  },
 
-    details: [detailsSchema]}, {  
-    timestamps: true,
-   
-  })
+  location: {
+    type: String,
+    enum: ['Living-Room', 'Kitchen', 'Bedroom', 'Bathroom', 'Study', 'Pantry'],
+  },
+  link: {
+    type: String,
+  },
+  itemStatus: {
+    type: String,
+    enum: ['In-Home', 'Desired'],
+  },
+  userName: String,
+  userAvatar: String,
 
+  details: [detailsSchema],
+}, {
+  timestamps: true,
+});
 
-  module.exports = mongoose.model('Item', itemSchema);
-  
+module.exports = mongoose.model('Item', itemSchema);

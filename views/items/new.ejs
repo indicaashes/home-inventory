@@ -1,30 +1,27 @@
 <%- include('../partials/header') %>
 
 <form id="new-form" action="/items" method="POST">
-    <label>Title:</label>
-    <input type="text" name="title">
-    <label>Color:</label>
-    <input type="text" name="color">
-    <label>Location</label>
-        <select name="location">
-            <option value="Living-Room">Living Room</option>
-            <option value="Kitchen">Kitchen</option>
-            <option value="Bedroom">Bedroom</option>
-            <option value="Bathroom">Bathroom</option>
-            <option value="Study">Study</option>
-            <option value="Pantry">Pantry</option>
-
-
-        </select>
-    <label>Link:</label>
-    <input type="text" name="link">
-    <label>Status:</label>
-    <select name="itemStatus" id="itemStatus">
-        <option value="In-Home">In Home</option>
-        <option value="Desired">Desired</option>
-      </select>
-    <input type="submit" value="Add Item">
-
+  <label>Title:</label>
+  <input type="text" name="title">
+  <label>Color:</label>
+  <input type="text" name="color">
+  <label>Location:</label>
+  <select name="location">
+    <option value="Living-Room">Living Room</option>
+    <option value="Kitchen">Kitchen</option>
+    <option value="Bedroom">Bedroom</option>
+    <option value="Bathroom">Bathroom</option>
+    <option value="Study">Study</option>
+    <option value="Pantry">Pantry</option>
+  </select>
+  <label>Link:</label>
+  <input type="text" name="link">
+  <label>Status:</label>
+  <select name="itemStatus" id="itemStatus">
+    <option value="In-Home">In Home</option>
+    <option value="Desired">Desired</option>
+  </select>
+  <input type="submit" value="Add Item">
 </form>
 
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

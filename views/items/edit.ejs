@@ -1,32 +1,29 @@
 <%- include('../partials/header') %>
-<form action="/items/<%= item.id %>?_method=PUT" method="POST" >
-    <label>Title:</label>
-    <input type="text" name="title">
-    <label>Color:</label>
-    <input type="text" name="color">
-    <label>Location</label>
-        <select name="location">
-            <option value="Living-Room">Living Room</option>
-            <option value="Kitchen">Kitchen</option>
-            <option value="Bedroom">Bedroom</option>
-            <option value="Bathroom">Bathroom</option>
-            <option value="Study">Study</option>
-            <option value="Pantry">Pantry</option>
 
-
-        </select>
-    <label>Link:</label>
-    <input type="text" name="link">
-    <label>Status:</label>
-    <select name="itemStatus" id="itemStatus">
-        <option value="In-Home">In Home</option>
-        <option value="Desired">Desired</option>
-      </select>
-      <label>Additional Details:</label>
-      <textarea name="moreDetails"></textarea>
-
-    <button type="submit">Update Item</button>
+<form action="/items/<%= item._id %>?_method=PUT" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" value="<%= item.title %>">
+  <label>Color:</label>
+  <input type="text" name="color" value="<%= item.color %>">
+  <label>Location:</label>
+  <select name="location">
+    <option value="Living-Room" <%= item.location === 'Living-Room' ? 'selected' : '' %>>Living Room</option>
+    <option value="Kitchen" <%= item.location === 'Kitchen' ? 'selected' : '' %>>Kitchen</option>
+    <option value="Bedroom" <%= item.location === 'Bedroom' ? 'selected' : '' %>>Bedroom</option>
+    <option value="Bathroom" <%= item.location === 'Bathroom' ? 'selected' : '' %>>Bathroom</option>
+    <option value="Study" <%= item.location === 'Study' ? 'selected' : '' %>>Study</option>
+    <option value="Pantry" <%= item.location === 'Pantry' ? 'selected' : '' %>>Pantry</option>
+  </select>
+  <label>Link:</label>
+  <input type="text" name="link" value="<%= item.link %>">
+  <label>Status:</label>
+  <select name="itemStatus" id="itemStatus">
+    <option value="In-Home" <%= item.itemStatus === 'In-Home' ? 'selected' : '' %>>In Home</option>
+    <option value="Desired" <%= item.itemStatus === 'Desired' ? 'selected' : '' %>>Desired</option>
+  </select>
+  <label>Additional Details:</label>
+  <textarea name="moreDetails"><%= item.details && item.details.moreDetails ? item.details.moreDetails : '' %></textarea>
+  <button type="submit">Update Item</button>
 </form>
-
 
 <%- include('../partials/footer') %>

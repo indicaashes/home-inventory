@@ -56,3 +56,17 @@ a {
 }
 
 
+#show-cont {
+  height: 10vh; 
+  
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#show-page {
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-style: solid;
+  border-color: black;
+}

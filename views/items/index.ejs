@@ -1,90 +1,83 @@
 <%- include('../partials/header') %>
-<container>
 
-<h2 class="index-h2">In Home</h2>
-<table id="in-home" class="index-table">
-  <thead>
-
-    <tr>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Owned</th>
-      <th>Username<br>Avatar</th>
-
-    </tr>
-  </thead>
-<tbody>
-    <% inHomeItems.forEach(function(i) { %>  
+<div class="container">
+  <h2 class="index-h2">In Home</h2>
+  <table id="in-home" class="index-table">
+    <thead>
       <tr>
-
-      <td><%= i.title %></td> 
-      <td><%= i.location %></td>
-      <td><%= i.itemStatus %></td>
-      <td><%= i.userName %></td>
-       <td> <%= i.userAvatar %></td>
-       <td><a href="/items/<%= i._id %>">Item Details</a>
-       </td>
-     <td><% i.details.forEach(detail => { %>
-       <%= detail.color %>
-       <%= detail.link %>
-       <%= detail.keep %>
-       <%= detail.moreDetails %>
-
-     <% }) %>
-     <form action="/items/<%= i.id %>?_method=DELETE" 
-      class="delete-form" method="POST">
-    <button type="submit">X</button>
-    </form>
-   </td>         
-  </tr>
-
-    <% }); %>
-</tbody>      
-
-</table>
-</container>
-<container>
-  <h2 class="index-h2">Desired</h2>
-      <table id="desired" class="index-table">
-        <thead>
-      
-          <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Owned</th>
-            <th>Username<br>Avatar</th>
-      
-          </tr>
-        </thead>
-      <tbody>
-          <% desiredItems.forEach(function(i) { %>  
-            <tr>
-      
-            <td><%= i.title %></td> 
-            <td><%= i.location %></td>
-            <td><%= i.itemStatus %></td>
-            <td><%= i.userName %></td>
-              <td><%= i.userAvatar %></td>
-            <td><a href="/items/<%= i._id %>">Item Details</a>
-              </td>
-            <td><% i.details.forEach(detail => { %>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Owned</th>
+        <th>Username<br>Avatar</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% inHomeItems.forEach(function(item) { %>
+        <tr>
+          <td><%= item.title %></td>
+          <td><%= item.location %></td>
+          <td><%= item.itemStatus %></td>
+          <td><%= item.userName %></td>
+          <td><%= item.userAvatar %></td>
+          <td><a href="/items/<%= item._id %>">Item Details</a></td>
+          <td>
+            <% item.details.forEach(function(detail) { %>
               <%= detail.color %>
               <%= detail.link %>
               <%= detail.keep %>
               <%= detail.moreDetails %>
-              
             <% }) %>
-            <form action="/items/<%= i.id %>?_method=DELETE" 
-              class="delete-form" method="POST">
-            <button type="submit">X</button>
+          </td>
+          <td>
+            <form action="/items/<%= item._id %>?_method=DELETE" class="delete-form" method="POST">
+              <button type="submit">X</button>
             </form>
-          </td>  
-            </tr>          
-        <% }); %>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
 
-      </tbody>
-      </table>
-</container>
-
+<div class="container">
+  <h2 class="index-h2">Desired</h2>
+  <table id="desired" class="index-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Owned</th>
+        <th>Username<br>Avatar</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% desiredItems.forEach(function(item) { %>
+        <tr>
+          <td><%= item.title %></td>
+          <td><%= item.location %></td>
+          <td><%= item.itemStatus %></td>
+          <td><%= item.userName %></td>
+          <td><%= item.userAvatar %></td>
+          <td><a href="/items/<%= item._id %>">Item Details</a></td>
+          <td>
+            <% item.details.forEach(function(detail) { %>
+              <%= detail.color %>
+              <%= detail.link %>
+              <%= detail.keep %>
+              <%= detail.moreDetails %>
+            <% }) %>
+          </td>
+          <td>
+            <form action="/items/<%= item._id %>?_method=DELETE" class="delete-form" method="POST">
+              <button type="submit">X</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
 
 <%- include('../partials/footer') %>

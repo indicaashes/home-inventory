@@ -1,19 +1,33 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
-        <div>Title: <%= item.title %></div><br>
-        <div>Location: <%= item.location %></div><br>
-        <div>Status: <%= item.itemStatus %></div><br>
-        <div>Color: <%= item.color %></div><br>
-        <label>Additional Details:</label>
-        <textarea name="moreDetails"></textarea>
-        <label>Link:</label><br>
-        <input type="text" name="link"><br>
+<container id="show-cont">
+  <h2>Item Details</h2>
+  <section id="show-page">
+    <div><strong>Title:</strong> <%= item.title %></div>
+    <div><strong>Location:</strong> <%= item.location %></div>
+    <div><strong>Status:</strong> <%= item.itemStatus %></div>
+    <div><strong>Color:</strong> <%= item.color %></div>
+  </section>
 
-        <input type="submit" value="Save">
-        </section>
+  <a href="/items/<%= item._id %>/notes/new">New Note</a>
+  <a href="/items/<%= item._id %>/edit">Edit Item</a>
+</container>
 
-        <a href="/items/<%= item.id %>/edit">Edit Item</a>
-
+<container>
+  <h2>Item Notes - <%= item.title %></h2>
+  <% if (item.details && item.details.length > 0) { %>
+    <ul>
+      <% item.details[0].notes.forEach(function(note) { %>
+        <li>
+          <strong>Link:</strong> <%= note.link %><br>
+          <strong>Price:</strong> <%= note.price %><br>
+          <strong>More Details:</strong> <%= note.moreDetails %><br>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No notes found for this item.</p>
+  <% } %>
+</container>
 
 <%- include('../partials/footer') %>
