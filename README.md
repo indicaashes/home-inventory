@@ -14,6 +14,16 @@ The features of the app include:
     User Authentication: Users must log in to access and manage their inventory.
 # Screenshot
 
+https://imgur.com/iylINrZ
+
+https://imgur.com/xwXwaNw
+
+https://imgur.com/QE0y73O
+
+https://imgur.com/7UoaIZj
+
+https://imgur.com/c7MC1wR
+
 # Technologies Used
 
 The Home Inventory App is built using the following technologies:
