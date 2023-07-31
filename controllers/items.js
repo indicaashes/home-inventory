@@ -22,7 +22,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    const item = await Item.findById(req.params.id).populate('details.notes');
+    const item = await Item.findById(req.params.id).populate('notes');
     res.render('items/show', { title: '', item });
   } catch (err) {
     console.error('Error fetching item details:', err);
@@ -104,8 +104,8 @@ async function createNote(req, res) {
   try {
     const newNote = await Note.create(req.body);
     const itemId = req.params.id;
-    await Item.findByIdAndUpdate(itemId, { $push: { 'details[0].notes': newNote._id } }); 
-    
+    await Item.findByIdAndUpdate(itemId, { $push: { 'notes': newNote._id } }); 
+
     res.redirect(`/items/${itemId}`);  
   } catch (err) {
     console.error('Error creating note:', err);

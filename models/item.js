@@ -15,10 +15,7 @@ const detailsSchema = new Schema({
   moreDetails: {
     type: String,
   },
-  notes: [{
-    type: Schema.Types.ObjectId, 
-    ref: 'Note',
-  }],
+  
 });
 
 const itemSchema = new Schema({
@@ -42,6 +39,11 @@ const itemSchema = new Schema({
   userAvatar: String,
 
   details: [detailsSchema],
+  
+  notes: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'Note',
+  }],
 }, {
   timestamps: true,
 });

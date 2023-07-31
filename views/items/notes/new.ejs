@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/notes" method="POST">
+  <input type="hidden" name="itemId" value="<%= item._id %>">
+  <label>Title:</label>
+  <input type="text" name="title">
+  <label>Link:</label>
+  <input type="text" name="link">
+  <label>Price:</label>
+  <input type="text" name="price">
+  <label>Additional Thoughts:</label>
+  <textarea name="moreDetails"></textarea><br>
+  <input type="submit" value="Save"><br>
+</form>
+
+<%- include('../partials/footer') %>
+

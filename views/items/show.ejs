@@ -15,9 +15,9 @@
 
 <container>
   <h2>Item Notes - <%= item.title %></h2>
-  <% if (item.details && item.details.length > 0) { %>
+  <% if (item.notes && item.notes.length > 0) { %>
     <ul>
-      <% item.details[0].notes.forEach(function(note) { %>
+      <% item.notes.forEach(function(note) { %>
         <li>
           <strong>Link:</strong> <%= note.link %><br>
           <strong>Price:</strong> <%= note.price %><br>
